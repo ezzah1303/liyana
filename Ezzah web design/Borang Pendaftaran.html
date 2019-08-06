@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Borang Pendaftaran</h1>
+
+    <form action="simpan.aspx" method="post" onsubmit="return sahkan();">
+        <table>
+            <tr>
+                <td>Nama Pelajar</td>
+                <td><input type="text" name="namapelajar" id="namapelajar"></td>
+            </tr>
+            <tr>
+                <td>Nombor Pendaftaran Pelajar</td>
+                <td><input type="text" name="nodaftar" id="nodaftar"></td>
+            </tr>
+            <tr>
+                <td>Umur (13 - 17 tahun sahaja)</td>
+                <td><input type="text" name="umur" id="umur"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit">DAFTAR</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        function sahkan() {
+            
+			var namapelajar = document.getElementById("namapelajar").value;
+			var nodaftar = document.getElementById("nodaftar").value;
+			var umur = document.getElementById("umur").value;
+			
+			if(namapelajar == "") {//Jika nama pelajar tidak diisi
+				alert('Sila isi nama pelajar');
+				return false;
+			
+			} else if(nodaftar == ""){// Jika nombor pendaftaran pelajar tidak diisi
+				alert('Sila isi nombor pendaftaran pelajar');
+				return false;
+			
+            } else if(nodaftar.length < 12){//  Jika nombor pendaftaran kurang daripada 12 huruf
+				alert('Nombor pendaftaran pelajar tidak boleh kurang daripada 12 huruf');
+				return false;
+			
+   			} else if(nodaftar.length > 12) {// Jika nombor pendaftaran lebih daripada 12 huruf
+				alert('Nombor pendaftaran pelajar tidak boleh lebih daripada 12 huruf');
+				return false;
+            
+			} else if(umur == "")	{// Jika umur tidak diisi
+				alert('Sila isi umur');
+				return false;
+			
+			} else if(isNaN(umur)) {// Jika umur diisi dengan huruf bukan nombor
+				alert('Sila isi umur dengan nombor semata-mata');
+				return false;
+						
+			} else if(umur <13) {// Jika umur kurang daripada 13 tahun
+				alert('Anda tidak layak kerana belum cukup umur')
+				return false;
+			
+			} else if(umur > 17) { // Jika umur lebih daripada 17 tahun
+				alert('Anda tidak layak kerana umur sudah melebih had')
+				return false;
+			
+			}
+        }
+
+        /*
+            Gunakan arahan if, getElementById & isNaN
+            agar popup berkenaan keluar pada waktu yang sesuai.
+        */ 
+    </script>
+</body>
+
+</html>
